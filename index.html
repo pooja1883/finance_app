@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finance Tracker Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  .summary-card {
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+  min-height: 150px;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  text-align: center; 
+  font-size: 30px; 
+  font-weight: bold;   
+              }
+
+
+  .row.g-3 > [class*="col-"] {
+  display: flex;
+        }
+  .row.g-3 > [class*="col-"] .summary-card {
+  flex: 1;
+  width: 100%;  
+        }
+
+    .income { background-color: #28a745; }
+    .expense { background-color: #dc3545; }
+    .balance { background-color: #0dcaf0; }
+    .budget { background-color: #ffc107; }
+
+   .chart-bar {
+      width: 30px;
+      margin: 0 5px;
+      background-color: #17a2b8;
+      display: inline-block;
+      vertical-align: bottom;
+      transition: height 0.3s ease, background-color 0.3s ease;
+    }
+    .chart-bar:hover {
+      background-color: #0d6efd;
+    }
+    .chart-label {
+      text-align: center;
+      font-size: 0.8rem;
+
+  .table-responsive {
+  overflow-x: auto;
+  }
+
+
+.table td, .table th {
+  white-space: nowrap;
+}
+
+
+.table td.text-end {
+  font-weight: 600;
+}
+
+}
+</style>
+</head>
+<body>
+  
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">BudgetBloom</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="expenses.html">Expenses</a></li>
+            <li class="nav-item"><a class="nav-link" href="income.html">Income</a></li>
+            <li class="nav-item"><a class="nav-link" href="budget.html">Budget</a></li>
+            <li class="nav-item"><a class="nav-link" href="currency.html">Currency</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+<main>
+
+    <div class="container py-4">
+  <div class="row mb-4">
+    <div class="col-12 col-lg-6">
+      <h2 id="greeting" class="mb-0"></h2>
+    </div>
+      <div class="col-12 col-lg-6 text-lg-end">
+      <p class="text-muted mb-0" id="lastSynced"></p>
+    </div>
+  </div>
+<div class="row g-3 mb-4">
+        <div class="col-md-3 col-6">
+          <div class="summary-card income">
+            <h5>Total Income</h5>
+            <p id="totalIncome">${0}</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="summary-card expense">
+            <h5>Total Expense</h5>
+            <p id="totalExpense">${0}</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="summary-card balance">
+            <h5>Balance</h5>
+            <p id="balance">${0}</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="summary-card budget">
+            <h5>Remaining Budget</h5>
+            <p id="remainingBudget">${0}</p>
+          </div>
+        </div>
+      </div>
+
+<div class="card mb-4">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <span>Recent Transactions</span>
+    <a href="expenses.html" class="text-decoration-none">View All →</a>
+  </div>
+  <div class="card-body">
+    
+    <div class="table-responsive">
+      <table class="table table-striped table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Category</th>
+            <th class="text-end">Amount</th>
+          </tr>
+        </thead>
+        <tbody id="transactionTable"></tbody>
+      </table>
+    </div>
+   
+  </div>
+</div>
+<div class="card mb-4">
+        <div class="card-header">Weekly Spending</div>
+        <div class="card-body">
+          <div class="d-flex justify-content-around align-items-end" style="height: 200px;" id="chartContainer"></div>
+          <div class="d-flex justify-content-around mt-2" id="chartLabels"></div>
+        </div>
+      </div>
+  </div>
+  </main>
+
+<footer>
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+      <span>&copy; 2025 BudgetBloom. All rights reserved</span>
+      <div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Support</a>
+      </div>
+    </div>
+  </footer>
+<script src="dashboard.js"></script>
+</body>
+</html>

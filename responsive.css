@@ -1,0 +1,27 @@
+@media (max-width: 992px) {
+  #incomeForm, .card.h-100 {
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 576px) {
+  #incomeTable td .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+}
+@media (max-width: 768px) {
+  .bar-wrapper {
+    flex: 0 0 60px;
+  }
+  .bar {
+    width: 30px;
+    font-size: 0.65rem;
+  }
+  .bar-label {
+    font-size: 0.7rem;
+  }
+}
+
